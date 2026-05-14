@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Biochimie S2 – Fiche Examen : Formules & Interprétation</title>
+<title>Biochimie S2 – Fiche Examen : Formules, Réactions & Interprétation</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -23,6 +23,7 @@
   --gold: #f0b429;
   --gold-dim: #261e08;
   --accent: #7c5cff;
+  --purple-dim: #1a1230;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -177,6 +178,61 @@ body {
   margin-top: 0.35rem;
 }
 
+/* REACTION BOX — nouvelle classe */
+.reaction-box {
+  background: var(--purple-dim);
+  border: 1.5px solid rgba(124,92,255,0.5);
+  border-radius: 8px;
+  padding: 0.9rem 1.2rem;
+  margin: 0.7rem 0;
+}
+.reaction-label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 0.55rem;
+}
+.reaction-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin-bottom: 0.45rem;
+}
+.reaction-n {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(124,92,255,0.15);
+  border-radius: 3px;
+  padding: 0.05rem 0.4rem;
+  min-width: 1.6rem;
+  text-align: center;
+  margin-top: 0.15rem;
+  flex-shrink: 0;
+}
+.reaction-eq {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.82rem;
+  color: #c0b0ff;
+  line-height: 1.5;
+}
+.reaction-enzyme {
+  font-size: 0.72rem;
+  color: #8878cc;
+  margin-top: 0.08rem;
+  font-style: italic;
+}
+.reaction-note {
+  font-size: 0.76rem;
+  color: #8070aa;
+  margin-top: 0.5rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid rgba(124,92,255,0.2);
+}
+
 /* INTERP GRID */
 .interp-grid {
   display: grid;
@@ -227,6 +283,7 @@ body {
 .label-green { color: var(--green); }
 .label-blue  { color: var(--blue); }
 .label-gold  { color: var(--gold); }
+.label-accent { color: var(--accent); }
 
 ul.c { list-style: none; padding: 0; }
 ul.c li { font-size: 0.85rem; padding: 0.15rem 0 0.15rem 1.3rem; position: relative; color: #c0cae0; }
@@ -306,14 +363,14 @@ ul.c li::before { content: "›"; position: absolute; left: 0.2rem; color: var(-
 <body>
 
 <div class="header">
-  <div class="badge">Fiche Examen Adaptée</div>
-  <h1>Biochimie S2<br>Formules & Interprétation</h1>
-  <div class="sub">Chapitres XI–XXII · Sans intervalles de référence · Sans mode opératoire</div>
+  <div class="badge">Fiche Examen Adaptée — Mise à jour avec Réactions</div>
+  <h1>Biochimie S2<br>Formules, Réactions &amp; Interprétation</h1>
+  <div class="sub">Chapitres XI–XXII · Réactions enzymatiques · Formules de calcul · Interprétation clinique</div>
   <div class="scope">
+    <span class="scope-pill">✓ Réactions enzymatiques</span>
     <span class="scope-pill">✓ Formules de calcul</span>
     <span class="scope-pill">✓ Hypo / Hyper</span>
     <span class="scope-pill">✓ Pathologies associées</span>
-    <span class="scope-pill">✗ Pas de valeurs normales</span>
     <span class="scope-pill">✗ Pas de mode opératoire</span>
   </div>
 </div>
@@ -342,6 +399,26 @@ ul.c li::before { content: "›"; position: absolute; left: 0.2rem; color: var(-
     <div class="ch-title">Corps Cétoniques</div>
   </div>
   <div class="chapter-body">
+
+    <div class="stitle">Réactions enzymatiques (méthode Williamson)</div>
+    <div class="reaction-box">
+      <div class="reaction-label">⚗️ Dosage enzymatique des corps cétoniques — Spectre visible 450 nm</div>
+      <div class="reaction-step">
+        <div class="reaction-n">1</div>
+        <div>
+          <div class="reaction-eq">β-hydroxybutyrate + NAD⁺ → acétoacétate + NADH + H⁺</div>
+          <div class="reaction-enzyme">catalysée par β-hydroxybutyrate déshydrogénase</div>
+        </div>
+      </div>
+      <div class="reaction-step">
+        <div class="reaction-n">2</div>
+        <div>
+          <div class="reaction-eq">Sel de tétrazolium + NADH + H⁺ → formazan + NAD⁺</div>
+          <div class="reaction-enzyme">catalysée par diaphorase</div>
+        </div>
+      </div>
+      <div class="reaction-note">Le formazan (composé coloré) absorbe à <strong>450 nm</strong>. Absorbance directement proportionnelle à la concentration en corps cétoniques.</div>
+    </div>
 
     <div class="stitle">Formules / Calculs clés</div>
     <div class="formula">
@@ -394,6 +471,41 @@ ul.c li::before { content: "›"; position: absolute; left: 0.2rem; color: var(-
   </div>
   <div class="chapter-body">
 
+    <div class="stitle">Réactions enzymatiques — Méthode colorimétrique en point final, 500 nm</div>
+    <div class="reaction-box">
+      <div class="reaction-label">⚗️ Dosage enzymatique colorimétrique des triglycérides</div>
+      <div class="reaction-step">
+        <div class="reaction-n">1</div>
+        <div>
+          <div class="reaction-eq">Triglycérides + H₂O → glycérol + acides gras</div>
+          <div class="reaction-enzyme">catalysée par lipoprotéine lipase</div>
+        </div>
+      </div>
+      <div class="reaction-step">
+        <div class="reaction-n">2</div>
+        <div>
+          <div class="reaction-eq">Glycérol + ATP → glycérol-3-phosphate + ADP</div>
+          <div class="reaction-enzyme">catalysée par glycérokinase (+ Mg²⁺)</div>
+        </div>
+      </div>
+      <div class="reaction-step">
+        <div class="reaction-n">3</div>
+        <div>
+          <div class="reaction-eq">Glycérol-3-phosphate + O₂ → H₂O₂ + dihydroxy-acétone-phosphate</div>
+          <div class="reaction-enzyme">catalysée par glycérol-3-phosphate oxydase</div>
+        </div>
+      </div>
+      <div class="reaction-step">
+        <div class="reaction-n">4</div>
+        <div>
+          <div class="reaction-eq">H₂O₂ + chloro-4-phénol + amino-4-antipyrine (PAP) → quinone (rouge) + H₂O</div>
+          <div class="reaction-enzyme">catalysée par peroxydase</div>
+        </div>
+      </div>
+      <div class="reaction-note">La quinonéimine (rouge) absorbe à <strong>500 nm</strong>. Absorbance proportionnelle à la quantité de TG.<br>
+      Calcul : <strong>TG (mg/dL) = (A<sub>E</sub> / A<sub>S</sub>) × 200 mg/dL</strong></div>
+    </div>
+
     <div class="stitle">Formule</div>
     <div class="formula">
       <div class="formula-label">Calcul du LDL (Friedewald)</div>
@@ -438,6 +550,34 @@ ul.c li::before { content: "›"; position: absolute; left: 0.2rem; color: var(-
   </div>
   <div class="chapter-body">
 
+    <div class="stitle">Réactions enzymatiques — Méthode colorimétrique en point final, 500 nm</div>
+    <div class="reaction-box">
+      <div class="reaction-label">⚗️ Dosage enzymatique du cholestérol total</div>
+      <div class="reaction-step">
+        <div class="reaction-n">1</div>
+        <div>
+          <div class="reaction-eq">Cholestérol estérifié + H₂O → cholestérol libre + acides gras</div>
+          <div class="reaction-enzyme">catalysée par cholestérol estérase</div>
+        </div>
+      </div>
+      <div class="reaction-step">
+        <div class="reaction-n">2</div>
+        <div>
+          <div class="reaction-eq">Cholestérol + O₂ → cholestène-4-one-3 + H₂O₂</div>
+          <div class="reaction-enzyme">catalysée par cholestérol oxydase</div>
+        </div>
+      </div>
+      <div class="reaction-step">
+        <div class="reaction-n">3</div>
+        <div>
+          <div class="reaction-eq">2 H₂O₂ + phénol* + amino-4-antipyrine* → quinone** + 4 H₂O</div>
+          <div class="reaction-enzyme">catalysée par peroxydase — * chromogène incolore → ** chromogène rose/rouge</div>
+        </div>
+      </div>
+      <div class="reaction-note">Absorbance mesurée à <strong>500 nm</strong>. Proportionnelle à la concentration en cholestérol.<br>
+      Calcul : <strong>Cholestérolémie (mg/dL) = (A<sub>E</sub> / A<sub>S</sub>) × 200 mg/dL</strong></div>
+    </div>
+
     <div class="stitle">Formules</div>
     <div class="formula">
       <div class="formula-label">Cholestérol total (Équation de balance)</div>
@@ -473,7 +613,7 @@ ul.c li::before { content: "›"; position: absolute; left: 0.2rem; color: var(-
       </div>
     </div>
     <div class="box-patho">
-      <div class="box-label label-blue">Enzyme clé & traitement</div>
+      <div class="box-label label-blue">Enzyme clé &amp; traitement</div>
       Synthèse hépatique via <strong>HMG-CoA réductase</strong> → cible des <strong>statines</strong> (hypolipémiants de référence)
     </div>
   </div>
@@ -486,6 +626,41 @@ ul.c li::before { content: "›"; position: absolute; left: 0.2rem; color: var(-
     <div class="ch-title">HDL-Cholestérol Sérique</div>
   </div>
   <div class="chapter-body">
+
+    <div class="stitle">Réactions enzymatiques — Méthode de précipitation + colorimétrie, 500 nm</div>
+    <div class="reaction-box">
+      <div class="reaction-label">⚗️ Principe : Précipitation LDL/VLDL puis dosage du surnageant HDL</div>
+      <div class="reaction-step">
+        <div class="reaction-n">Préc.</div>
+        <div>
+          <div class="reaction-eq">Acide phosphotungstique + Mg²⁺ → précipitation des LDL, VLDL, chylomicrons</div>
+          <div class="reaction-enzyme">Le surnageant contient uniquement les HDL → centrifugation 5000 tr/min</div>
+        </div>
+      </div>
+      <div class="reaction-step">
+        <div class="reaction-n">1</div>
+        <div>
+          <div class="reaction-eq">Cholestérol estérifié (HDL) + H₂O → cholestérol + acides gras</div>
+          <div class="reaction-enzyme">catalysée par cholestérol estérase</div>
+        </div>
+      </div>
+      <div class="reaction-step">
+        <div class="reaction-n">2</div>
+        <div>
+          <div class="reaction-eq">Cholestérol + O₂ → cholestène-4-one-3 + H₂O₂</div>
+          <div class="reaction-enzyme">catalysée par cholestérol oxydase</div>
+        </div>
+      </div>
+      <div class="reaction-step">
+        <div class="reaction-n">3</div>
+        <div>
+          <div class="reaction-eq">2 H₂O₂ + phénol + amino-4-antipyrine → quinone (rose/rouge) + 4 H₂O</div>
+          <div class="reaction-enzyme">catalysée par peroxydase</div>
+        </div>
+      </div>
+      <div class="reaction-note">Absorbance mesurée à <strong>500 nm</strong>.<br>
+      Calcul : <strong>HDL-col (mg/dL) = (A<sub>E</sub> / A<sub>S</sub>) × 50 mg/dL × 1,1</strong> (facteur de dilution de la précipitation)</div>
+    </div>
 
     <div class="stitle">Formules</div>
     <div class="formula">
@@ -536,6 +711,21 @@ ul.c li::before { content: "›"; position: absolute; left: 0.2rem; color: var(-
   </div>
   <div class="chapter-body">
 
+    <div class="stitle">Réaction chimique — Méthode du biuret, 546 nm</div>
+    <div class="reaction-box">
+      <div class="reaction-label">⚗️ Réaction du biuret — méthode colorimétrique (pas enzymatique)</div>
+      <div class="reaction-step">
+        <div class="reaction-n">Rx</div>
+        <div>
+          <div class="reaction-eq">Liaisons peptidiques + Cu²⁺ (milieu alcalin, NaOH) → Complexe violet</div>
+          <div class="reaction-enzyme">Les ions Cu²⁺ forment des complexes avec les atomes d'azote des liaisons peptidiques → coloration violet</div>
+        </div>
+      </div>
+      <div class="reaction-note">Absorbance mesurée à <strong>546 nm</strong>. Proportionnelle au nombre de liaisons peptidiques (≈ quantité de protéines).<br>
+      Réactif biuret : NaOH + CuSO₄ + Tartrate double de Na et K + KI<br>
+      Calcul : <strong>Protidémie (g/dL) = (A<sub>E</sub> / A<sub>S</sub>) × 8 g/dL</strong></div>
+    </div>
+
     <div class="stitle">Formules / Rapports clés</div>
     <div class="formula">
       <div class="formula-label">Rapport albumine / globulines</div>
@@ -582,6 +772,28 @@ ul.c li::before { content: "›"; position: absolute; left: 0.2rem; color: var(-
     <div class="ch-title">Urée Plasmatique (Azotémie)</div>
   </div>
   <div class="chapter-body">
+
+    <div class="stitle">Réactions enzymatiques — Méthode cinétique UV, 340 nm</div>
+    <div class="reaction-box">
+      <div class="reaction-label">⚗️ Dosage de l'urée — Méthode enzymatique cinétique</div>
+      <div class="reaction-step">
+        <div class="reaction-n">1</div>
+        <div>
+          <div class="reaction-eq">Urée + 2 H₂O → 2 NH₃ + CO₂</div>
+          <div class="reaction-enzyme">catalysée par uréase</div>
+        </div>
+      </div>
+      <div class="reaction-step">
+        <div class="reaction-n">2</div>
+        <div>
+          <div class="reaction-eq">NH₃ + 2-oxoglutarate + NADH + H⁺ → NAD⁺ + L-glutamate + H₂O</div>
+          <div class="reaction-enzyme">catalysée par glutamate déshydrogénase (GLDH)</div>
+        </div>
+      </div>
+      <div class="reaction-note">La vitesse de <strong>décroissance du NADH</strong> (→ NAD⁺) est mesurée à <strong>340 nm</strong> (domaine UV). Elle est directement proportionnelle à la concentration d'urée.<br>
+      Calcul : <strong>Urémie = (ΔA<sub>E</sub> / ΔA<sub>S</sub>) × 50 mg/dL</strong><br>
+      Facteur de conversion : mg/dL × 0,166 = mmol/L</div>
+    </div>
 
     <div class="stitle">Formule</div>
     <div class="formula">
@@ -631,6 +843,22 @@ ul.c li::before { content: "›"; position: absolute; left: 0.2rem; color: var(-
   </div>
   <div class="chapter-body">
 
+    <div class="stitle">Réaction chimique — Méthode de Jaffé (cinétique), 520 nm</div>
+    <div class="reaction-box">
+      <div class="reaction-label">⚗️ Réaction de Jaffé — Méthode colorimétrique cinétique</div>
+      <div class="reaction-step">
+        <div class="reaction-n">Rx</div>
+        <div>
+          <div class="reaction-eq">Créatinine + acide picrique → complexe picrate de créatinine (jaune-orange)</div>
+          <div class="reaction-enzyme">en présence de NaOH (milieu alcalin) — pas d'enzyme</div>
+        </div>
+      </div>
+      <div class="reaction-note">Absorbance mesurée à <strong>520 nm</strong>. L'intensité de la coloration est proportionnelle à la vitesse de formation du complexe (dosage cinétique).<br>
+      Le dosage cinétique permet de s'affranchir des interférences dues notamment à la bilirubine.<br>
+      Calcul : <strong>Créatininémie = (ΔA<sub>E</sub> / ΔA<sub>S</sub>) × 2 mg/dL</strong><br>
+      Facteur de conversion : mg/dL × 88,4 = µmol/L</div>
+    </div>
+
     <div class="stitle">Formule / Seuil d'alerte</div>
     <div class="formula">
       <div class="formula-label">Insuffisance rénale aiguë (IRA)</div>
@@ -677,9 +905,33 @@ ul.c li::before { content: "›"; position: absolute; left: 0.2rem; color: var(-
 <div class="chapter" id="ch18">
   <div class="chapter-header">
     <div class="ch-num">XVIII</div>
-    <div class="ch-title">Bilirubine Totale & Conjuguée</div>
+    <div class="ch-title">Bilirubine Totale &amp; Conjuguée</div>
   </div>
   <div class="chapter-body">
+
+    <div class="stitle">Réactions chimiques — Méthode de Vanden Berg, 546 nm</div>
+    <div class="reaction-box">
+      <div class="reaction-label">⚗️ Dosage de la bilirubine — Méthode colorimétrique (acide sulfanilique diazoté)</div>
+      <div class="reaction-step">
+        <div class="reaction-n">BT</div>
+        <div>
+          <div class="reaction-eq">Bilirubine totale (conjuguée + non-conjuguée) + acide sulfanilique diazoté → composé coloré</div>
+          <div class="reaction-enzyme">en présence de DMSO (diméthylsulfoxyde) — dissout la bilirubine non-conjuguée</div>
+        </div>
+      </div>
+      <div class="reaction-step">
+        <div class="reaction-n">BC</div>
+        <div>
+          <div class="reaction-eq">Bilirubine conjuguée (directe) + acide sulfanilique diazoté → composé coloré</div>
+          <div class="reaction-enzyme">réaction directe, sans DMSO</div>
+        </div>
+      </div>
+      <div class="reaction-note">Absorbance mesurée à <strong>546 nm</strong>.<br>
+      Calcul BT : <strong>(A<sub>E</sub> / A<sub>S</sub>) × 1,32 mg/dL</strong> &nbsp;|&nbsp; Calcul BC : <strong>(A<sub>E</sub> / A<sub>S</sub>) × 0,2 mg/dL</strong><br>
+      Bilirubine indirecte : <strong>BI = BT − BC</strong><br>
+      Facteur de conversion : mg/dL × 17,10 = µmol/L<br>
+      ⚠️ La bilirubine se décompose rapidement à la lumière → traiter immédiatement.</div>
+    </div>
 
     <div class="stitle">Formules</div>
     <div class="formula">
@@ -756,6 +1008,35 @@ ul.c li::before { content: "›"; position: absolute; left: 0.2rem; color: var(-
   </div>
   <div class="chapter-body">
 
+    <div class="stitle">Réactions chimiques — Méthode colorimétrique (ferrozine), 546 nm</div>
+    <div class="reaction-box">
+      <div class="reaction-label">⚗️ Dosage du fer — Méthode colorimétrique à la ferrozine</div>
+      <div class="reaction-step">
+        <div class="reaction-n">1</div>
+        <div>
+          <div class="reaction-eq">Transferrine-Fe³⁺ + guanidine (milieu acide) → Fe³⁺ libéré</div>
+          <div class="reaction-enzyme">La guanidine libère le fer de la transferrine</div>
+        </div>
+      </div>
+      <div class="reaction-step">
+        <div class="reaction-n">2</div>
+        <div>
+          <div class="reaction-eq">Fe³⁺ + acide ascorbique → Fe²⁺ (réduction)</div>
+          <div class="reaction-enzyme">réduction chimique en milieu acide</div>
+        </div>
+      </div>
+      <div class="reaction-step">
+        <div class="reaction-n">3</div>
+        <div>
+          <div class="reaction-eq">Fe²⁺ + ferrozine → complexe coloré Fe²⁺-ferrozine</div>
+          <div class="reaction-enzyme">réaction chimique (pas enzymatique)</div>
+        </div>
+      </div>
+      <div class="reaction-note">Absorbance mesurée à <strong>546 nm</strong>. Proportionnelle à la concentration en fer.<br>
+      Calcul : <strong>Fer (µg/dL) = (A<sub>E</sub> / A<sub>S</sub>) × 200 µg/dL</strong><br>
+      Facteur de conversion : µg/dL × 0,179 = µmol/L</div>
+    </div>
+
     <div class="stitle">Formules / Calculs</div>
     <div class="formula">
       <div class="formula-label">Coefficient de saturation de la transferrine (CSS)</div>
@@ -806,6 +1087,27 @@ ul.c li::before { content: "›"; position: absolute; left: 0.2rem; color: var(-
     <div class="ch-title">Acide Urique (Uricémie)</div>
   </div>
   <div class="chapter-body">
+
+    <div class="stitle">Réactions enzymatiques — Méthode enzymatique en point final, 520 nm</div>
+    <div class="reaction-box">
+      <div class="reaction-label">⚗️ Dosage de l'acide urique — Méthode enzymatique colorimétrique</div>
+      <div class="reaction-step">
+        <div class="reaction-n">1</div>
+        <div>
+          <div class="reaction-eq">Acide urique + 2 H₂O + O₂ → allantoïne + CO₂ + H₂O₂</div>
+          <div class="reaction-enzyme">catalysée par uricase</div>
+        </div>
+      </div>
+      <div class="reaction-step">
+        <div class="reaction-n">2</div>
+        <div>
+          <div class="reaction-eq">H₂O₂ + acide 3,5-dichloro-2-hydroxybenzène sulfonique* + 4-aminophénazone → quinonéimine** + 2 H₂O + HCl</div>
+          <div class="reaction-enzyme">catalysée par peroxydase — * chromogène incolore → ** chromogène rose/rouge</div>
+        </div>
+      </div>
+      <div class="reaction-note">Absorbance mesurée à <strong>520 nm</strong>. Proportionnelle à la quantité d'acide urique.<br>
+      Calcul : <strong>Uricémie (mg/dL) = (A<sub>E</sub> / A<sub>S</sub>) × 6 mg/dL</strong></div>
+    </div>
 
     <div class="stitle">Formule / Voie métabolique</div>
     <div class="formula">
@@ -862,6 +1164,21 @@ ul.c li::before { content: "›"; position: absolute; left: 0.2rem; color: var(-
     <div class="ch-title">Calcium Sérique</div>
   </div>
   <div class="chapter-body">
+
+    <div class="stitle">Réaction chimique — Méthode colorimétrique Arsenazo III, 650 nm</div>
+    <div class="reaction-box">
+      <div class="reaction-label">⚗️ Dosage du calcium — Méthode colorimétrique (pas enzymatique)</div>
+      <div class="reaction-step">
+        <div class="reaction-n">Rx</div>
+        <div>
+          <div class="reaction-eq">Ca²⁺ + Arsenazo III (pH 6,5, milieu acide) → Complexe Arsenazo III–Calcium (coloré)</div>
+          <div class="reaction-enzyme">Réaction de chélation — pas d'enzyme impliquée</div>
+        </div>
+      </div>
+      <div class="reaction-note">Absorbance mesurée à <strong>650 nm</strong>. Proportionnelle à la concentration en calcium.<br>
+      Calcul : <strong>Calcémie (mg/dL) = (A<sub>E</sub> / A<sub>S</sub>) × 10 mg/dL</strong><br>
+      ⚠️ Anticoagulants EDTA, oxalate, citrate, fluorure sont <strong>interdits</strong> (forment des complexes avec Ca²⁺)</div>
+    </div>
 
     <div class="stitle">Formules</div>
     <div class="formula">
@@ -940,6 +1257,33 @@ ul.c li::before { content: "›"; position: absolute; left: 0.2rem; color: var(-
   </div>
   <div class="chapter-body">
 
+    <div class="stitle">Principe — Bandelette réactive (méthode semi-quantitative)</div>
+    <div class="reaction-box">
+      <div class="reaction-label">⚗️ Bandelette urinaire — Réactions colorées par paramètre</div>
+      <div class="reaction-step">
+        <div class="reaction-n">Glc</div>
+        <div>
+          <div class="reaction-eq">Glucose + O₂ → acide gluconique + H₂O₂ (catalysée par GOD) → puis oxydation du chromogène (POD) → couleur</div>
+          <div class="reaction-enzyme">Même principe que le dosage sérique de la glycémie (GOD/POD)</div>
+        </div>
+      </div>
+      <div class="reaction-step">
+        <div class="reaction-n">Corp. cét.</div>
+        <div>
+          <div class="reaction-eq">Acétoacétate + nitroprussiate de sodium (milieu alcalin) → complexe violet (réaction de Legal)</div>
+          <div class="reaction-enzyme">L'acétone réagit moins fortement — sensibilité moindre pour β-hydroxybutyrate</div>
+        </div>
+      </div>
+      <div class="reaction-step">
+        <div class="reaction-n">Nitrites</div>
+        <div>
+          <div class="reaction-eq">Nitrates (bactéries → nitrite réductase) → NO₂⁻ + réactif de Griess → azo-colorant rose</div>
+          <div class="reaction-enzyme">Indique présence de bactéries à Gram négatif urinaires</div>
+        </div>
+      </div>
+      <div class="reaction-note">La coloration de chaque zone est comparée à une échelle de couleurs prédéfinie → évaluation <strong>semi-quantitative</strong> (concentration approchée, pas exacte).</div>
+    </div>
+
     <div class="stitle">Formules / Seuils diagnostiques</div>
     <div class="formula">
       <div class="formula-label">Seuil rénal du glucose (glycosurie)</div>
@@ -1000,7 +1344,88 @@ ul.c li::before { content: "›"; position: absolute; left: 0.2rem; color: var(-
   </div>
 </div>
 
-<!-- MEGA RECAP -->
+<!-- MEGA RECAP REACTIONS -->
+<div class="recap">
+  <div class="recap-title">⚗️ TABLEAU RÉCAPITULATIF DES RÉACTIONS &amp; SPECTRES</div>
+  <div style="overflow-x:auto">
+  <table style="width:100%;border-collapse:collapse;font-size:0.8rem;margin-top:0.3rem">
+    <tr style="border-bottom:1px solid rgba(124,92,255,0.3)">
+      <td style="padding:0.4rem 0.6rem;color:var(--accent);font-weight:700">Dosage</td>
+      <td style="padding:0.4rem 0.6rem;color:var(--accent);font-weight:700">Méthode</td>
+      <td style="padding:0.4rem 0.6rem;color:var(--accent);font-weight:700">Enzymes clés</td>
+      <td style="padding:0.4rem 0.6rem;color:var(--accent);font-weight:700">Spectre</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border)">
+      <td style="padding:0.35rem 0.6rem;color:var(--gold)">Corps cétoniques</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Enzymatique (Williamson)</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">β-HBD + diaphorase → NADH → formazan</td>
+      <td style="padding:0.35rem 0.6rem;color:var(--green)">450 nm</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border)">
+      <td style="padding:0.35rem 0.6rem;color:var(--gold)">Triglycérides</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Colorimétrique point final</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">LPL + glycérokinase + G3PO + POD → quinonéimine</td>
+      <td style="padding:0.35rem 0.6rem;color:var(--green)">500 nm</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border)">
+      <td style="padding:0.35rem 0.6rem;color:var(--gold)">Cholestérol total</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Colorimétrique point final</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Cholestérol estérase + oxydase + POD → quinonéimine</td>
+      <td style="padding:0.35rem 0.6rem;color:var(--green)">500 nm</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border)">
+      <td style="padding:0.35rem 0.6rem;color:var(--gold)">HDL-cholestérol</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Précipitation + colorimétrie</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Même que cholestérol total après précipitation LDL/VLDL</td>
+      <td style="padding:0.35rem 0.6rem;color:var(--green)">500 nm</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border)">
+      <td style="padding:0.35rem 0.6rem;color:var(--gold)">Protéines totales</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Biuret (colorimétrique)</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Pas d'enzyme — Cu²⁺ + liaisons peptidiques → complexe violet</td>
+      <td style="padding:0.35rem 0.6rem;color:var(--green)">546 nm</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border)">
+      <td style="padding:0.35rem 0.6rem;color:var(--gold)">Urée</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Enzymatique cinétique UV</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Uréase + GLDH → ↓ NADH mesuré</td>
+      <td style="padding:0.35rem 0.6rem;color:var(--blue)">340 nm (UV)</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border)">
+      <td style="padding:0.35rem 0.6rem;color:var(--gold)">Créatinine</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Jaffé cinétique</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Pas d'enzyme — créatinine + acide picrique (NaOH) → complexe orange</td>
+      <td style="padding:0.35rem 0.6rem;color:var(--green)">520 nm</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border)">
+      <td style="padding:0.35rem 0.6rem;color:var(--gold)">Bilirubine</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Vanden Berg (colorimétrique)</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Pas d'enzyme — acide sulfanilique diazoté ± DMSO → composé coloré</td>
+      <td style="padding:0.35rem 0.6rem;color:var(--green)">546 nm</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border)">
+      <td style="padding:0.35rem 0.6rem;color:var(--gold)">Fer sérique</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Ferrozine (colorimétrique)</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Pas d'enzyme — Fe²⁺ + ferrozine → complexe coloré</td>
+      <td style="padding:0.35rem 0.6rem;color:var(--green)">546 nm</td>
+    </tr>
+    <tr style="border-bottom:1px solid var(--border)">
+      <td style="padding:0.35rem 0.6rem;color:var(--gold)">Acide urique</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Enzymatique point final</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Uricase + POD → quinonéimine</td>
+      <td style="padding:0.35rem 0.6rem;color:var(--green)">520 nm</td>
+    </tr>
+    <tr>
+      <td style="padding:0.35rem 0.6rem;color:var(--gold)">Calcium</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Arsenazo III (colorimétrique)</td>
+      <td style="padding:0.35rem 0.6rem;color:#c0cae0">Pas d'enzyme — Ca²⁺ + Arsenazo III → complexe coloré</td>
+      <td style="padding:0.35rem 0.6rem;color:var(--green)">650 nm</td>
+    </tr>
+  </table>
+  </div>
+</div>
+
+<!-- MEGA RECAP FORMULES -->
 <div class="recap">
   <div class="recap-title">⭐ FORMULES À MAÎTRISER POUR L'EXAMEN</div>
   <div class="recap-grid">
@@ -1055,7 +1480,7 @@ ul.c li::before { content: "›"; position: absolute; left: 0.2rem; color: var(-
   </div>
 </div>
 
-<div class="footer">Biochimie Médicale · 1ère Année · Chapitres XI–XXII · Fiche examen adaptée · Formules & Interprétation uniquement</div>
+<div class="footer">Biochimie Médicale · 1ère Année · Chapitres XI–XXII · Fiche examen adaptée · Réactions enzymatiques + Formules + Interprétation</div>
 </div>
 </body>
 </html>
